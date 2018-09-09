@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Introdução ao VueJS</title>
+    </head>
+    <body>
+        <div id="app">
+            {{ msg }}
+            <!--
+                title estático
+                <p title="Esse é o title!">Teste com Title</p>
+            -->
+
+            <!-- title dinâmico com VueJS -->
+            <p v-bind:title="titulo">Teste com Title</p>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script type="text/javascript">
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    msg: 'Iniciando com Vue JS',
+                    titulo: 'Teste com v-bind'
+                }
+            });
+        </script>
+    </body>
+</html>
