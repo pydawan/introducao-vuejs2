@@ -24,6 +24,10 @@
                     <br>
                     <br>
                     <gui-tabela v-bind:titulos="['Nome', 'E-mail', 'Link']" v-bind:registros="registros"></gui-tabela>
+                    <br>
+                    <p v-once>{{ meuTitulo }}</p>
+                    <br>
+                    <p v-html="html"></p>
                 </div>
             </div>
         </div>
@@ -67,7 +71,8 @@
                     { 'titulo': 'Título 2', 'descricao': 'Descrição 2', link: 'link2' },
                     { 'titulo': 'Título 3', 'descricao': 'Descrição 3', link: 'link3' }
                     
-                ]
+                ],
+                html: '<a href="#">Esse é um link</a>'
             }
         });
     </script>
