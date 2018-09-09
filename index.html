@@ -22,6 +22,11 @@
 
             <button v-if="!clicou" v-on:click="usuarioClicou">salvar</button>
             <button v-if="clicou" v-on:click="usuarioClicou">aguarde...</button>
+            <br>
+            <input type="text" v-model="usuario.nome">
+            <p>
+                Nome: {{ usuario.nome }}
+            </p>
         </div>
 
         <script src="https://unpkg.com/vue"></script>
@@ -42,7 +47,10 @@
                         { titulo: 'registro6'},
                         { titulo: 'registro7'},
                     ],
-                    clicou: false
+                    clicou: false,
+                    usuario: {
+                        nome: ''
+                    }
                 },
                 methods: {
                     usuarioClicou: function() {
