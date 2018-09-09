@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introdução ao Vue JS 2</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <gui-titulo></gui-titulo>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script type="text/javascript">
+
+        Vue.component('gui-titulo', {
+            template: '<h2>Componente de Título</h2>'
+        });
+
+        var app = new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+
+</html>
