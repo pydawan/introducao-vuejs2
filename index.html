@@ -19,6 +19,9 @@
             <p v-if="condicao">Teste com If</p>
 
             <p v-for="registro in registros">{{ registro.titulo }}</p>
+
+            <button v-if="!clicou" v-on:click="usuarioClicou">salvar</button>
+            <button v-if="clicou" v-on:click="usuarioClicou">aguarde...</button>
         </div>
 
         <script src="https://unpkg.com/vue"></script>
@@ -38,7 +41,13 @@
                         { titulo: 'registro5'},
                         { titulo: 'registro6'},
                         { titulo: 'registro7'},
-                    ]
+                    ],
+                    clicou: false
+                },
+                methods: {
+                    usuarioClicou: function() {
+                        this.clicou = !this.clicou;
+                    }
                 }
             });
         </script>
