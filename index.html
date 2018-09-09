@@ -15,6 +15,10 @@
 
             <!-- title dinâmico com VueJS -->
             <p v-bind:title="titulo">Teste com Title</p>
+
+            <p v-if="condicao">Teste com If</p>
+
+            <p v-for="registro in registros">{{ registro.titulo }}</p>
         </div>
 
         <script src="https://unpkg.com/vue"></script>
@@ -24,7 +28,17 @@
                 el: "#app",
                 data: {
                     msg: 'Iniciando com Vue JS',
-                    titulo: 'Teste com v-bind'
+                    titulo: 'Teste com v-bind',
+                    condicao: true,
+                    registros: [
+                        { titulo: 'registro1'},
+                        { titulo: 'registro2'},
+                        { titulo: 'registro3'},
+                        { titulo: 'registro4'},
+                        { titulo: 'registro5'},
+                        { titulo: 'registro6'},
+                        { titulo: 'registro7'},
+                    ]
                 }
             });
         </script>
