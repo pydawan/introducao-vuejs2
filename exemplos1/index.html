@@ -10,7 +10,11 @@
 <body>
 
     <div id="app">
-        <gui-titulo></gui-titulo>
+        <gui-titulo titulo="Esse é o Título"></gui-titulo>
+        <gui-titulo titulo="Hello VueJS World!"></gui-titulo>
+        <gui-titulo v-bind:titulo="meuTitulo"></gui-titulo>
+        <br>
+        <input type="text" v-model="meuTitulo">
     </div>
 
     <script src="https://unpkg.com/vue"></script>
@@ -18,11 +22,17 @@
     <script type="text/javascript">
 
         Vue.component('gui-titulo', {
-            template: '<h2>Componente de Título</h2>'
+            props: [
+                'titulo'
+            ],
+            template: '<h2>{{ titulo }}</h2>'
         });
 
         var app = new Vue({
-            el: '#app'
+            el: '#app',
+            data: {
+                meuTitulo: "Título"
+            }
         });
     </script>
 </body>
