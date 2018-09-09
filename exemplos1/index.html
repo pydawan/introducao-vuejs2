@@ -4,23 +4,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <style type="text/css"></style>
     <title>Introdução ao Vue JS 2</title>
 </head>
 
 <body>
 
-    <div id="app">
-        <gui-titulo titulo="Esse é o Título"></gui-titulo>
-        <gui-titulo titulo="Hello VueJS World!"></gui-titulo>
-        <gui-titulo v-bind:titulo="meuTitulo"></gui-titulo>
-        <br>
-        <input type="text" v-model="meuTitulo">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="app">
+                    <gui-titulo titulo="Esse é o Título"></gui-titulo>
+                    <gui-titulo titulo="Hello VueJS World!"></gui-titulo>
+                    <gui-titulo v-bind:titulo="meuTitulo"></gui-titulo>
+                    <br>
+                    <input type="text" v-model="meuTitulo">
+                    <br>
+                    <br>
+                    <br>
+                    <gui-tabela v-bind:titulos="['Nome', 'E-mail', 'Link']" v-bind:registros="registros"></gui-tabela>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-
         Vue.component('gui-titulo', {
             props: [
                 'titulo'
@@ -28,10 +41,33 @@
             template: '<h2>{{ titulo }}</h2>'
         });
 
+        Vue.component('gui-tabela', {
+            props: ['titulos', 'registros'],
+            template: '' +
+            '<table class="table">' +
+            '   <thead>' +
+            '       <tr>' +
+            '           <th v-for="titulo in titulos">{{ titulo }}</th>' +
+            '       </tr>' +
+            '   </thead>' + 
+            '   <tbody>' +
+            '       <tr v-for="registro in registros">' +
+            '           <td v-for="campo in registro">{{ campo }}</td>' +
+            '       </tr>' +
+            '   </tbody>' +
+            '</table>'
+        });
+
         var app = new Vue({
             el: '#app',
             data: {
-                meuTitulo: "Título"
+                meuTitulo: "Esse é o Título",
+                registros: [
+                    { 'titulo': 'Título 1', 'descricao': 'Descrição 1', link: 'link1' },
+                    { 'titulo': 'Título 2', 'descricao': 'Descrição 2', link: 'link2' },
+                    { 'titulo': 'Título 3', 'descricao': 'Descrição 3', link: 'link3' }
+                    
+                ]
             }
         });
     </script>
